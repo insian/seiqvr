@@ -519,7 +519,6 @@ class Node3(object):
         self.iter = -1
 
     def visualize_states(self):
-
         if self.param_vis_on:
             time_arr = np.linspace(0, self.param_num_sim, self.param_num_sim) * self.param_dt
             state_sus = self.states_arr.dot(self.ind_sus)
