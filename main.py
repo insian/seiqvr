@@ -50,7 +50,7 @@ def run_simulation():
     ratio = min(canvas_width / img.width, canvas_height / img.height)
     new_width = int(img.width * ratio)
     new_height = int(img.height * ratio)
-    new_image = img.resize((new_width, new_height), Image.ANTIALIAS)
+    new_image = img.resize((new_width, new_height), Image.LANCZOS)
     new_photo = ImageTk.PhotoImage(new_image)
     canvas.create_image(0,0,anchor=tk.NW, image=new_photo)
     canvas.image = new_photo
