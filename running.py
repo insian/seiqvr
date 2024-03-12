@@ -15,12 +15,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import datetime
 from maincode import Node3
-params = [0.0, 0.0, 0.0, 0.0, 0.0,
+params = [0.0, 0.0, 1, 64.0, 0.0,
           0.6, 50.0, 90.0, 0.0, 0.0,
           17380, 0.7 ,1, 3.5, 75.0, 300,
           5, 20, 14, 112374331, 2,1]
 
-params1 = [0.0, 0.0, 0.0, 0.0, 0.0,
+params1 = [0.0, 0.0, 0.001, 64.0, 0.0,
           0.02, 50.0, 70.0, 0.0, 0.0,
           12000, 2 ,3, 4.12, 83.0, 300,
           5, 20, 14, 20185000, 2,1]
@@ -84,6 +84,7 @@ if node.check_init():
       node.data_inf = np.append(node.data_inf, node.states_arr.dot(node.ind_inf))
       node.data_iso = np.append(node.data_iso, node.states_arr.dot(node.ind_iso))
       node.data_imm = np.append(node.data_imm, node.states_arr.dot(node.ind_imm))
+      node.data_vac = np.append(node.data_vac, node.states_arr.dot(node.ind_vac))
       node.data_dea = np.append(node.data_dea, node.states_arr[:, -1])
 
       node.init_susceptible = node.data_sus[-1]
@@ -96,6 +97,8 @@ if node.check_init():
     node.df['iso'] = node.data_iso
     node.df['imm'] = node.data_imm
     node.df['dea'] = node.data_dea
+    node.df['vac'] = node.data_vac
+    node.df['index'] = node.df.index
     node.df['con'] = node.df['exp'] + node.df['qua'] + node.df['inf'] + node.df['iso'] + node.df['imm'] + node.df['dea']
 
 

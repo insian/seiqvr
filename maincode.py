@@ -86,6 +86,7 @@ class Node3(object):
         self.data_iso = np.array([], dtype=int)
         self.data_imm = np.array([], dtype=int)
         self.data_dea = np.array([], dtype=int)
+        self.data_vac = np.array([], dtype=int)
 
     def get_param_br(self):
         return self.param_br
